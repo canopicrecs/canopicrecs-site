@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Canopic Recordings</title>
+<meta name="description" content="Canopic Recordings: drum and bass and jungle label from London. Latest releases, artists and the Bandcamp shop.">
+<meta property="og:title" content="Canopic Recordings">
+<meta property="og:description" content="Drum and bass and jungle from London. New releases on Bandcamp.">
+<meta property="og:image" content="https://canopicrecordings.com/assets/share.jpg">
+<meta property="og:url" content="https://canopicrecordings.com/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0a0a0a">
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Figtree:wght@400;500;600&display=swap">
+<style>
+/* Layout: the label's own sleeve. Black stone ground with grain, bone-white type, thin sacred-geometry linework from the logo (circles, triangles, dotted orbits, dot nodes), Cinzel capitals echoing RECORDINGS. Monochrome by design. */
+:root {
+  color-scheme: dark;
+  --ink: #0a0a0a;
+  --stone: #131313;
+  --line: #2e2e2c;
+  --line-hi: #5a5955;
+  --bone: #ecebe6;
+  --ash: #95938c;
+  --display: "Cinzel", "Trajan Pro", "Times New Roman", serif;
+  --body: "Figtree", "Helvetica Neue", Arial, sans-serif;
+  --gutter: clamp(16px, 4vw, 48px);
+  --grain: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .07 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+* { box-sizing: border-box; }
+body { background: var(--ink); color: var(--bone); font: 400 16px/1.65 var(--body); }
+body::before { content: ""; position: fixed; inset: 0; background-image: var(--grain); pointer-events: none; z-index: 50; mix-blend-mode: screen; }
+a { color: inherit; }
+a:focus-visible, button:focus-visible, input:focus-visible { outline: 1px solid var(--bone); outline-offset: 4px; }
+.wrap { max-width: 1200px; margin: 0 auto; padding-inline: var(--gutter); }
+.caps { font-family: var(--display); text-transform: uppercase; letter-spacing: .32em; }
+
+/* concept ribbon */
+
+/* nav */
+header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; background: rgba(10,10,10,.9); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 10px; flex-wrap: wrap; }
+.logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+.logo img { height: 46px; width: auto; }
+.logo span { font: 700 15px/1 var(--display); letter-spacing: .3em; }
+nav ul { display: flex; gap: clamp(16px, 3vw, 36px); list-style: none; margin: 0; padding: 0; flex-wrap: wrap; }
+nav a { font: 600 12px/1 var(--display); letter-spacing: .26em; text-transform: uppercase; text-decoration: none; color: var(--ash); }
+nav a:hover { color: var(--bone); }
+
+/* divider: the banner rule from the logo, nodes at the ends, a diamond at the centre */
+.rule { display: flex; align-items: center; gap: 0; color: var(--line-hi); }
+.rule::before, .rule::after { content: ""; flex: 1; height: 1px; background: currentColor; }
+.rule i { width: 9px; height: 9px; border: 1px solid currentColor; transform: rotate(45deg); margin: 0 14px; flex: none; }
+.rule b { width: 7px; height: 7px; border-radius: 50%; background: currentColor; flex: none; }
+
+/* hero */
+.hero { position: relative; overflow: hidden; padding-block: clamp(40px, 7vw, 88px); }
+.hero .geo { position: absolute; inset: 0; width: 100%; height: 100%; color: var(--line); pointer-events: none; }
+.hero-grid { position: relative; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 80px); align-items: center; }
+.hero-logo { width: min(100%, 420px); height: auto; display: block; filter: drop-shadow(0 0 40px rgba(0,0,0,.9)); }
+.eyebrow { font: 600 12px/1 var(--display); letter-spacing: .34em; text-transform: uppercase; color: var(--ash); margin: 0 0 28px; }
+.lede { max-width: 50ch; color: var(--ash); font-size: 18px; margin: 32px 0 0; text-wrap: pretty; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; font: 700 12px/1 var(--display); letter-spacing: .22em; text-transform: uppercase; padding: 16px 24px; text-decoration: none; border: 1px solid var(--bone); cursor: pointer; transition: background .2s, color .2s; }
+.btn.solid { background: var(--bone); color: var(--ink); }
+.btn.solid:hover { background: transparent; color: var(--bone); }
+.btn.ghost { background: transparent; color: var(--bone); }
+.btn.ghost:hover { background: var(--bone); color: var(--ink); }
+
+/* featured release */
+.feature { position: relative; background: var(--stone); border: 1px solid var(--line); padding: 18px; display: grid; gap: 18px; }
+.feature::before, .feature::after { content: ""; position: absolute; width: 7px; height: 7px; border-radius: 50%; background: var(--line-hi); top: -4px; }
+.feature::before { left: -4px; } .feature::after { right: -4px; }
+.feature-art { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; display: block; max-width: 100%; }
+.bc-player { border: 0; width: 100%; height: 180px; display: block; }
+.feature-meta { display: flex; justify-content: space-between; align-items: end; gap: 14px; flex-wrap: wrap; }
+.feature-meta h2 { margin: 6px 0 0; font: 700 28px/1.1 var(--display); letter-spacing: .06em; text-transform: uppercase; }
+.feature-meta p { margin: 4px 0 0; color: var(--ash); }
+.tag { font: 600 11px/1 var(--display); letter-spacing: .3em; text-transform: uppercase; color: var(--ash); }
+.note { font: 400 13px/1.5 var(--body); color: var(--ash); margin: 0; }
+
+/* sections */
+section.block { padding-block: clamp(56px, 8vw, 100px); }
+.sec-head { display: grid; justify-items: center; text-align: center; gap: 14px; margin-bottom: 44px; }
+.sec-head h2 { margin: 0; font: 700 clamp(32px, 5vw, 56px)/1 var(--display); text-transform: uppercase; letter-spacing: .12em; text-wrap: balance; }
+.sec-head p { margin: 0; color: var(--ash); max-width: 54ch; }
+.sec-head .rule { width: min(100%, 360px); }
+
+/* filters */
+.filters { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-bottom: 36px; }
+.chip { font: 600 11px/1 var(--display); letter-spacing: .24em; text-transform: uppercase; padding: 12px 16px; background: transparent; color: var(--ash); border: 1px solid var(--line); cursor: pointer; }
+.chip:hover { color: var(--bone); border-color: var(--line-hi); }
+.chip[aria-pressed="true"] { color: var(--ink); background: var(--bone); border-color: var(--bone); }
+
+/* release grid */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); gap: clamp(18px, 2.6vw, 32px); }
+.rel { display: grid; gap: 14px; text-decoration: none; align-content: start; }
+.rel .art { position: relative; aspect-ratio: 1; max-width: 100%; overflow: hidden; background: var(--stone); border: 1px solid var(--line); }
+.rel img, .rel canvas { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s ease, filter .5s ease; filter: grayscale(.15) brightness(.92); }
+.rel .buy { position: absolute; left: 0; right: 0; bottom: 0; background: var(--bone); color: var(--ink); font: 700 11px/1 var(--display); letter-spacing: .24em; text-transform: uppercase; padding: 12px; text-align: center; transform: translateY(100%); transition: transform .25s ease; }
+.rel:hover img, .rel:focus-visible img, .rel:hover canvas, .rel:focus-visible canvas { transform: scale(1.04); filter: none; }
+.rel:hover .buy, .rel:focus-visible .buy { transform: none; }
+.rel h3 { margin: 0; font: 700 17px/1.25 var(--display); text-transform: uppercase; letter-spacing: .06em; text-wrap: balance; }
+.rel p { margin: 4px 0 0; color: var(--ash); font-size: 14px; }
+.rel .kind { font: 600 10px/1 var(--display); letter-spacing: .3em; text-transform: uppercase; color: var(--ash); }
+@media (hover: none) { .rel .buy { transform: none; } }
+
+/* artists */
+.roster { list-style: none; margin: 0 auto; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px 0; max-width: 1000px; }
+.roster li { display: flex; align-items: center; font: 600 clamp(22px, 3.6vw, 42px)/1.2 var(--display); text-transform: uppercase; letter-spacing: .08em; }
+.roster li:not(:last-child)::after { content: ""; width: .22em; height: .22em; border: 1px solid var(--line-hi); transform: rotate(45deg); margin: 0 .7em; }
+.roster a { text-decoration: none; color: var(--ash); transition: color .2s; }
+.roster a:hover { color: var(--bone); }
+
+/* about + newsletter */
+.two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 80px); align-items: start; }
+.about-h { margin: 18px 0 26px; font: 700 clamp(32px, 5vw, 56px)/1 var(--display); text-transform: uppercase; letter-spacing: .12em; }
+.about p { font-size: 18px; max-width: 56ch; margin: 0 0 16px; color: #cfcdc6; }
+.about .place { font: 600 12px/1 var(--display); letter-spacing: .34em; text-transform: uppercase; color: var(--ash); margin: 0; }
+.signup { position: relative; border: 1px solid var(--line); background: var(--stone); padding: clamp(24px, 3vw, 40px); display: grid; gap: 16px; }
+.signup h3 { margin: 0; font: 700 28px/1.1 var(--display); text-transform: uppercase; letter-spacing: .1em; }
+.signup p { margin: 0; color: var(--ash); }
+.signup form { display: flex; gap: 8px; flex-wrap: wrap; }
+.signup label { flex-basis: 100%; font: 600 11px/1 var(--display); letter-spacing: .26em; text-transform: uppercase; color: var(--ash); }
+.signup input { flex: 1 1 200px; min-width: 0; font: 400 16px/1 var(--body); padding: 14px; background: var(--ink); color: var(--bone); border: 1px solid var(--line); }
+.signup input::placeholder { color: #5d5c58; }
+.ok { color: var(--bone); font-size: 14px; }
+
+/* footer */
+footer { padding-block: 48px; color: var(--ash); border-top: 1px solid var(--line); }
+footer .wrap { display: grid; justify-items: center; gap: 22px; text-align: center; }
+footer img { width: 92px; height: auto; opacity: .85; }
+footer ul { display: flex; gap: 26px; list-style: none; margin: 0; padding: 0; flex-wrap: wrap; justify-content: center; }
+footer a { text-decoration: none; font: 600 11px/1 var(--display); letter-spacing: .26em; text-transform: uppercase; }
+footer a:hover { color: var(--bone); }
+
+@media (max-width: 860px) {
+  .hero-grid, .two { grid-template-columns: minmax(0, 1fr); }
+  .hero-copy { display: grid; justify-items: center; text-align: center; }
+  .hero-logo { width: min(100%, 320px); }
+  .cta-row { justify-content: center; }
+}
+@media (max-width: 520px) { .logo span { display: none; } }
+@media (prefers-reduced-motion: reduce) {
+    .rel img, .rel canvas, .rel .buy { transition: none; }
+}
+</style>
+</head>
+<body>
+
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Canopic Recordings home">
+      <img src="/assets/logo-white-sm.webp" alt="" width="160" height="174">
+      <span>CANOPIC</span>
+    </a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#releases">Releases</a></li>
+        <li><a href="#artists">Artists</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="https://canopicrecordings.bandcamp.com/merch">Merch</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <svg class="geo" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <g fill="none" stroke="currentColor" stroke-width="1">
+        <circle cx="300" cy="350" r="300"/>
+        <circle cx="300" cy="350" r="250" stroke-dasharray="14 6 2 6"/>
+        <path d="M300 20 L600 620 L0 620 Z"/>
+        <path d="M-40 350 L300 190 L640 350 L300 510 Z" stroke-dasharray="3 5"/>
+        <circle cx="940" cy="330" r="220" stroke-dasharray="2 7"/>
+        <line x1="0" y1="660" x2="1200" y2="660"/>
+      </g>
+      <g fill="currentColor"><circle cx="300" cy="190" r="5"/><circle cx="640" cy="350" r="5"/><circle cx="-40" cy="350" r="5"/><circle cx="1160" cy="330" r="4"/></g>
+    </svg>
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Drum &amp; Bass · Jungle · London</p>
+        <h1 style="margin:0"><img class="hero-logo" src="/assets/logo-white.webp" alt="Canopic Recordings" width="1000" height="1090"></h1>
+        <p class="lede">Unearthing hidden gems and backing emerging talent, alongside established artists who keep pushing drum and bass and jungle forward.</p>
+        <div class="cta-row">
+          <a class="btn solid" href="https://canopicrecordings.bandcamp.com/album/index-solo">Buy the new release</a>
+          <a class="btn ghost" href="#releases">Browse the catalogue</a>
+        </div>
+      </div>
+
+      <article class="feature" aria-label="Latest release">
+        <img class="feature-art" src="https://f4.bcbits.com/img/a2515256519_10.jpg" alt="Index // Solo artwork" width="640" height="640">
+        <div class="feature-meta">
+          <div>
+            <span class="tag">Latest release · August 2025</span>
+            <h2>Index // Solo</h2>
+            <p>Jem One</p>
+          </div>
+          <a class="btn solid" href="https://canopicrecordings.bandcamp.com/album/index-solo">Buy on Bandcamp</a>
+        </div>
+        <iframe class="bc-player" title="Listen to Index // Solo on Bandcamp" src="https://bandcamp.com/EmbeddedPlayer/album=3416940653/size=large/bgcol=131313/linkcol=ecebe6/tracklist=true/artwork=none/transparent=true/" seamless loading="lazy"></iframe>
+      </article>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="rule"><b></b><i></i><b></b></div></div>
+
+  <section class="block" id="releases">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="tag">The tomb</span>
+        <h2>Catalogue</h2>
+        <p>Every release, from the first single to the latest. Tap a cover to listen and buy on Bandcamp.</p>
+      </div>
+      <div class="filters" role="group" aria-label="Filter releases">
+        <button class="chip" type="button" data-f="all" aria-pressed="true">All 16</button>
+        <button class="chip" type="button" data-f="album" aria-pressed="false">EPs &amp; singles</button>
+        <button class="chip" type="button" data-f="track" aria-pressed="false">Tracks</button>
+      </div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="rule"><b></b><i></i><b></b></div></div>
+
+  <section class="block" id="artists">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="tag">The keepers</span>
+        <h2>Artists</h2>
+        <p>The roster, from first-time releases to long-standing names.</p>
+      </div>
+      <ul class="roster" id="roster"></ul>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="rule"><b></b><i></i><b></b></div></div>
+
+  <section class="block" id="about">
+    <div class="wrap two">
+      <div class="about">
+        <p class="place">London, UK</p>
+        <h2 class="about-h">About the label</h2>
+        <p>Canopic Recordings grew out of a love for the heritage and constant evolution of drum and bass and jungle.</p>
+        <p>The label digs for overlooked music, develops new producers, and works with established artists who are still reshaping the sound.</p>
+      </div>
+      <div class="signup">
+        <h3>Hear it first</h3>
+        <p>Follow the label on Bandcamp and you'll hear about every new release and pre-order first.</p>
+        <a class="btn solid" href="https://canopicrecordings.bandcamp.com" target="_blank" rel="noopener">Follow on Bandcamp</a>
+        <p class="note">Followers get an email from Bandcamp every time a new Canopic record drops.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="/assets/logo-white-sm.webp" alt="Canopic Recordings" width="160" height="174">
+    <ul>
+      <li><a href="https://canopicrecordings.bandcamp.com">Bandcamp</a></li>
+      <li><a href="https://www.instagram.com/canopicrecordings/">Instagram</a></li>
+      <li><a href="https://www.facebook.com/canopicrecs">Facebook</a></li>
+      <li><a href="https://twitter.com/canopicrecs">X / Twitter</a></li>
+    </ul>
+    <span class="note">© Canopic Recordings · London</span>
+  </div>
+</footer>
+
+<script>
+const LBL = "?label=1527403616&tab=music";
+const releases = [
+  { t: "Index // Solo", a: "Jem One", k: "album", y: 2025, u: "https://canopicrecordings.bandcamp.com/album/index-solo", img: "https://f4.bcbits.com/img/a2515256519_5.jpg" },
+  { t: "Belle Vue // The Visser", a: "Jack South", k: "album", y: 2024, u: "https://canopicrecordings.bandcamp.com/album/belle-vue-the-visser", img: "https://f4.bcbits.com/img/a0264133182_5.jpg" },
+  { t: "Moving Day EP", a: "Chris Inperspective", k: "album", y: 2024, u: "https://canopicrecordings.bandcamp.com/album/moving-day-ep", img: "https://f4.bcbits.com/img/a3612679104_5.jpg" },
+  { t: "The Megazord EP", a: "Dunk", k: "album", y: 2024, u: "https://canopicrecordings.bandcamp.com/album/the-megazord-ep", img: "https://f4.bcbits.com/img/a0189660443_5.jpg" },
+  { t: "Last Man // Moody Dance", a: "Adred", k: "album", y: 2024, u: "https://canopicrecordings.bandcamp.com/album/last-man-moody-dance", img: "https://f4.bcbits.com/img/a0625023607_5.jpg" },
+  { t: "Life on Mars // Falling Apart", a: "Phazeman & N-Tropik", k: "album", y: 2023, u: "https://canopicrecordings.bandcamp.com/album/life-on-mars-falling-apart", img: "https://f4.bcbits.com/img/a2477583377_5.jpg" },
+  { t: "Broken Sword / Marley Man", a: "Loxy & Resound", k: "album", y: 2023, u: "https://loxy.bandcamp.com/album/broken-sword-marley-man"+LBL+"", img: "https://f4.bcbits.com/img/a3993158704_5.jpg" },
+  { t: "Decima // Last One", a: "Deepcutt", k: "album", y: 2023, u: "https://canopicrecordings.bandcamp.com/album/decima-last-one", img: "https://f4.bcbits.com/img/a4109060799_5.jpg" },
+  { t: "Crow Dance // Run It Back", a: "Noir", k: "album", y: 2023, u: "https://darknoir.bandcamp.com/album/crow-dance-run-it-back"+LBL+"", img: "https://f4.bcbits.com/img/a3308076943_5.jpg" },
+  { t: "Broken Sword // Marley Man", a: "Loxy", k: "album", y: 2023, u: "https://loxy.bandcamp.com/album/broken-sword-marley-man-2"+LBL+"", img: "https://f4.bcbits.com/img/a2736544365_5.jpg" },
+  { t: "Wild Ones / Mutated Drift", a: "Loxy", k: "album", y: 2023, u: "https://loxy.bandcamp.com/album/wild-ones-mutated-drift"+LBL+"", img: "https://f4.bcbits.com/img/a1347433315_5.jpg" },
+  { t: "Project 55", a: "Aura", k: "track", y: 2023, u: "https://auradeejay.bandcamp.com/track/project-55"+LBL+"", img: "https://f4.bcbits.com/img/a2016591330_5.jpg" },
+  { t: "Omari (Adred Remix)", a: "Deepcutt, Adred", k: "track", y: 2022, u: "https://canopicrecordings.bandcamp.com/track/omari-adred-remix", img: "https://f4.bcbits.com/img/a1280394942_5.jpg" },
+  { t: "Retrograde", a: "Deepcutt", k: "track", y: 2022, u: "https://canopicrecordings.bandcamp.com/track/retrograde", img: "https://f4.bcbits.com/img/a3214170000_5.jpg" },
+  { t: "Decide / Decide (Deepcutt Remix)", a: "Leor", k: "album", y: 2022, u: "https://leordnb.bandcamp.com/album/decide-decide-deepcutt-remix"+LBL+"", img: "https://f4.bcbits.com/img/a1506473858_5.jpg" },
+  { t: "Cartouche", a: "Decaura", k: "track", y: 2020, u: "https://decaura.bandcamp.com/track/cartouche"+LBL+"", img: "https://f4.bcbits.com/img/a2274137413_5.jpg" }
+];
+const artists = [
+  ["Jem One","https://canopicrecordings.bandcamp.com/album/index-solo"],
+  ["Jack South","https://canopicrecordings.bandcamp.com/album/belle-vue-the-visser"],
+  ["Chris Inperspective","https://canopicrecordings.bandcamp.com/album/moving-day-ep"],
+  ["Dunk","https://canopicrecordings.bandcamp.com/album/the-megazord-ep"],
+  ["Adred","https://canopicrecordings.bandcamp.com/album/last-man-moody-dance"],
+  ["Phazeman","https://canopicrecordings.bandcamp.com/album/life-on-mars-falling-apart"],
+  ["N-Tropik","https://canopicrecordings.bandcamp.com/album/life-on-mars-falling-apart"],
+  ["Loxy","https://loxy.bandcamp.com"],
+  ["Resound","https://loxy.bandcamp.com/album/broken-sword-marley-man" + LBL],
+  ["Noir","https://darknoir.bandcamp.com"],
+  ["Aura","https://auradeejay.bandcamp.com"],
+  ["Deepcutt","https://canopicrecordings.bandcamp.com/track/retrograde"],
+  ["Leor","https://leordnb.bandcamp.com"],
+  ["Decaura","https://decaura.bandcamp.com"]
+];
+
+// Placeholder covers in the logo's language: black ground, bone linework, dotted orbits, triangles, nodes, banner nameplate
+function hash(s) { let h = 2166136261; for (const c of s) { h ^= c.charCodeAt(0); h = Math.imul(h, 16777619); } return h >>> 0; }
+function rng(seed) { return () => { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; }; }
+function drawArt(cv, title, artist) {
+  const r = rng(hash(title + artist)), c = cv.getContext("2d"), W = cv.width, H = cv.height;
+  const BONE = "#ecebe6", INK = "#0b0b0b";
+  c.fillStyle = INK; c.fillRect(0, 0, W, H);
+  // grain
+  const img = c.getImageData(0, 0, W, H), d = img.data;
+  for (let i = 0; i < d.length; i += 4) { const n = (Math.random() * 22) | 0; d[i] += n; d[i+1] += n; d[i+2] += n; }
+  c.putImageData(img, 0, 0);
+  const cx = W / 2, cy = H * 0.42, R = W * (0.26 + r() * 0.08);
+  c.strokeStyle = BONE; c.fillStyle = BONE; c.lineWidth = W * 0.003;
+  const dot = (x, y, s) => { c.beginPath(); c.arc(x, y, s, 0, Math.PI * 2); c.fill(); };
+  // outer and inner circles
+  c.globalAlpha = .85; c.beginPath(); c.arc(cx, cy, R, 0, Math.PI * 2); c.stroke();
+  c.setLineDash([W*.02, W*.01, W*.004, W*.01]); c.globalAlpha = .55;
+  c.beginPath(); c.arc(cx, cy, R * .82, 0, Math.PI * 2); c.stroke(); c.setLineDash([]);
+  // a second offset orbit
+  if (r() > .4) { c.globalAlpha = .45; c.beginPath(); c.arc(cx, cy - R * .35, R * .62, 0, Math.PI * 2); c.stroke(); }
+  // triangles
+  c.globalAlpha = .7;
+  const up = r() > .5, th = R * (1.25 + r() * .2);
+  c.beginPath(); c.moveTo(cx, cy - th); c.lineTo(cx + th * .87, cy + th * .5); c.lineTo(cx - th * .87, cy + th * .5); c.closePath(); c.stroke();
+  if (up) { c.setLineDash([W*.006, W*.008]); c.beginPath(); c.moveTo(cx, cy + th*.9); c.lineTo(cx + th, cy - th*.2); c.lineTo(cx - th, cy - th*.2); c.closePath(); c.stroke(); c.setLineDash([]); }
+  // horizontal diamond
+  c.globalAlpha = .5; c.beginPath(); c.moveTo(cx - R*1.5, cy); c.lineTo(cx, cy - R*.55); c.lineTo(cx + R*1.5, cy); c.lineTo(cx, cy + R*.55); c.closePath(); c.stroke();
+  // nodes
+  c.globalAlpha = 1; dot(cx, cy - th, W*.012); dot(cx - R*1.5, cy, W*.01); dot(cx + R*1.5, cy, W*.01);
+  const a = r() * Math.PI * 2; dot(cx + Math.cos(a) * R * .82, cy + Math.sin(a) * R * .82, W*.014);
+  // centre eye/diamond
+  c.beginPath(); c.moveTo(cx, cy - R*.2); c.lineTo(cx + R*.1, cy); c.lineTo(cx, cy + R*.2); c.lineTo(cx - R*.1, cy); c.closePath();
+  if (r() > .5) c.fill(); else c.stroke();
+  // nameplate banner
+  const by = H * 0.8, pad = W * 0.07;
+  c.globalAlpha = 1; c.lineWidth = W * .004;
+  c.beginPath(); c.moveTo(pad, by - H*.06); c.lineTo(W - pad, by - H*.06); c.stroke();
+  c.beginPath(); c.moveTo(pad, by + H*.07); c.lineTo(W - pad, by + H*.07); c.stroke();
+  dot(pad, by - H*.06, W*.008); dot(W - pad, by - H*.06, W*.008); dot(pad, by + H*.07, W*.008); dot(W - pad, by + H*.07, W*.008);
+  c.textAlign = "center"; c.textBaseline = "middle";
+  let size = W * 0.07; const name = artist.toUpperCase();
+  c.font = `700 ${size}px Cinzel, serif`;
+  while (c.measureText(name).width > W - pad * 2.6 && size > 10) { size -= 1; c.font = `700 ${size}px Cinzel, serif`; }
+  c.fillText(name, W / 2, by + H*.005);
+}
+
+const grid = document.getElementById("grid");
+function render(filter) {
+  grid.innerHTML = "";
+  releases.filter(x => filter === "all" || x.k === filter).forEach(x => {
+    const a = document.createElement("a");
+    a.className = "rel"; a.href = x.u; a.target = "_blank"; a.rel = "noopener";
+    a.innerHTML = `<div class="art"><img src="${x.img}" alt="${x.t} artwork" width="700" height="700" loading="lazy"><span class="buy">Buy on Bandcamp</span></div>
+      <div><span class="kind">${x.k === "track" ? "Track" : "Release"} · ${x.y}</span><h3>${x.t}</h3><p>${x.a}</p></div>`;
+    grid.appendChild(a);
+    const im = a.querySelector("img");
+    im.addEventListener("error", () => { const cv = document.createElement("canvas"); cv.width = cv.height = 440; im.replaceWith(cv); drawArt(cv, x.t, x.a); }, { once: true });
+  });
+}
+document.querySelectorAll(".chip").forEach(ch => ch.addEventListener("click", () => {
+  document.querySelectorAll(".chip").forEach(o => o.setAttribute("aria-pressed", o === ch ? "true" : "false"));
+  render(ch.dataset.f);
+}));
+
+const roster = document.getElementById("roster");
+artists.forEach(([n, u]) => { const li = document.createElement("li"); li.innerHTML = `<a href="${u}" target="_blank" rel="noopener">${n}</a>`; roster.appendChild(li); });
+
+
+
+
+
+function boot() { render("all"); }
+(document.fonts && document.fonts.load ? document.fonts.load("700 20px Cinzel").catch(() => {}) : Promise.resolve()).then(boot);
+</script>
+</body>
+</html>

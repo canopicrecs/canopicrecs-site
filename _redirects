@@ -1,0 +1,12 @@
+# Old Bandcamp links on canopicrecordings.com forward to the shop subdomain
+/album/*      https://shop.canopicrecordings.com/album/:splat      301
+/track/*      https://shop.canopicrecordings.com/track/:splat      301
+/merch        https://shop.canopicrecordings.com/merch             301
+/merch/*      https://shop.canopicrecordings.com/merch/:splat      301
+/music        https://shop.canopicrecordings.com/music             301
+/artists      https://shop.canopicrecordings.com/artists           301
+/video        https://shop.canopicrecordings.com/video             301
+/community    https://shop.canopicrecordings.com/community         301
+/policies     https://shop.canopicrecordings.com/policies          301
+/contact      https://shop.canopicrecordings.com/contact           301
+/shop         https://canopicrecordings.bandcamp.com               302
