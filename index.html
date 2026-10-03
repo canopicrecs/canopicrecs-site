@@ -89,7 +89,7 @@
         <p>Every release, from the first single to the latest. Tap a cover to listen and buy on Bandcamp.</p>
       </div>
       <div class="filters" role="group" aria-label="Filter releases">
-        <button class="chip" type="button" data-f="all" aria-pressed="true">All 16</button>
+        <button class="chip" type="button" data-f="all" aria-pressed="true">All <span id="count">20</span></button>
         <button class="chip" type="button" data-f="album" aria-pressed="false">EPs &amp; singles</button>
         <button class="chip" type="button" data-f="track" aria-pressed="false">Tracks</button>
       </div>
@@ -162,7 +162,11 @@ const releases = [
   { t: "Omari (Adred Remix)", a: "Deepcutt, Adred", k: "track", y: 2022, u: "https://canopicrecordings.bandcamp.com/track/omari-adred-remix", img: "https://f4.bcbits.com/img/a1280394942_5.jpg" },
   { t: "Retrograde", a: "Deepcutt", k: "track", y: 2022, u: "https://canopicrecordings.bandcamp.com/track/retrograde", img: "https://f4.bcbits.com/img/a3214170000_5.jpg" },
   { t: "Decide / Decide (Deepcutt Remix)", a: "Leor", k: "album", y: 2022, u: "https://leordnb.bandcamp.com/album/decide-decide-deepcutt-remix"+LBL+"", img: "https://f4.bcbits.com/img/a1506473858_5.jpg" },
-  { t: "Cartouche", a: "Decaura", k: "track", y: 2020, u: "https://decaura.bandcamp.com/track/cartouche"+LBL+"", img: "https://f4.bcbits.com/img/a2274137413_5.jpg" }
+  { t: "Cartouche", a: "Decaura", k: "track", y: 2020, u: "https://decaura.bandcamp.com/track/cartouche"+LBL+"", img: "https://f4.bcbits.com/img/a2274137413_5.jpg" },
+  { t: "Revolver", a: "Deepcutt", k: "track", y: 2020, u: "https://deepcuttuk.bandcamp.com/track/revolver"+LBL, img: "https://f4.bcbits.com/img/a1952992031_5.jpg" },
+  { t: "Omari", a: "Deepcutt", k: "track", y: 2020, u: "https://deepcuttuk.bandcamp.com/track/omari"+LBL, img: "https://f4.bcbits.com/img/a1882856849_5.jpg" },
+  { t: "Narmer", a: "Deepcutt", k: "track", y: 2018, u: "https://deepcuttuk.bandcamp.com/track/narmer"+LBL, img: "https://f4.bcbits.com/img/a4063594572_5.jpg" },
+  { t: "The Tomb", a: "Deepcutt", k: "track", y: 2018, u: "https://deepcuttuk.bandcamp.com/track/the-tomb"+LBL, img: "https://f4.bcbits.com/img/a3195863972_5.jpg" }
 ];
 const artists = [
   ["Jem One","https://canopicrecordings.bandcamp.com/album/index-solo"],
@@ -252,7 +256,7 @@ artists.forEach(([n, u]) => { const li = document.createElement("li"); li.innerH
 
 
 
-function boot() { render("all"); }
+function boot() { document.getElementById("count").textContent = releases.length; render("all"); }
 (document.fonts && document.fonts.load ? document.fonts.load("700 20px Cinzel").catch(() => {}) : Promise.resolve()).then(boot);
 </script>
 </body>
