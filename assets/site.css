@@ -57,7 +57,25 @@ nav a:hover { color: var(--bone); }
 .feature::before, .feature::after { content: ""; position: absolute; width: 7px; height: 7px; border-radius: 50%; background: var(--line-hi); top: -4px; }
 .feature::before { left: -4px; } .feature::after { right: -4px; }
 .feature-art { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; display: block; max-width: 100%; }
-.bc-player { border: 0; width: 100%; height: 180px; display: block; }
+.soon-art { position: relative; }
+.soon-stamp { position: absolute; top: 14px; left: 14px; background: var(--ink); color: var(--bone); border: 1px solid var(--bone); font: 700 11px/1 var(--display); letter-spacing: .3em; text-transform: uppercase; padding: 10px 12px; }
+.soon-copy { margin: 0; color: var(--ash); border-top: 1px solid var(--line); padding-top: 16px; }
+
+/* latest release strip */
+.latest-wrap { padding-block: 0 clamp(40px, 6vw, 72px); }
+.latest { position: relative; display: grid; grid-template-columns: 120px minmax(0, 290px) minmax(0, 1fr) auto; gap: 24px; align-items: center; background: var(--stone); border: 1px solid var(--line); padding: 14px; }
+.latest::before, .latest::after { content: ""; position: absolute; width: 7px; height: 7px; border-radius: 50%; background: var(--line-hi); top: 50%; margin-top: -4px; }
+.latest::before { left: -4px; } .latest::after { right: -4px; }
+.latest-art { width: 120px; height: 120px; object-fit: cover; display: block; }
+.latest-meta h2 { margin: 8px 0 0; font: 700 22px/1.1 var(--display); letter-spacing: .06em; text-transform: uppercase; }
+.latest-meta p { margin: 4px 0 0; color: var(--ash); }
+.latest-player { border: 0; width: 100%; height: 120px; display: block; min-width: 0; }
+@media (max-width: 1000px) {
+  .latest { grid-template-columns: 96px minmax(0, 1fr); }
+  .latest-art { width: 96px; height: 96px; }
+  .latest-player { grid-column: 1 / -1; }
+  .latest-buy { grid-column: 1 / -1; }
+}
 .feature-meta { display: flex; justify-content: space-between; align-items: end; gap: 14px; flex-wrap: wrap; }
 .feature-meta h2 { margin: 6px 0 0; font: 700 28px/1.1 var(--display); letter-spacing: .06em; text-transform: uppercase; }
 .feature-meta p { margin: 4px 0 0; color: var(--ash); }
