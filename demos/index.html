@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Send a Demo · Canopic Recordings</title>
+<meta name="description" content="Send your drum and bass or jungle demo to Canopic Recordings.">
+<meta property="og:title" content="Send a demo to Canopic Recordings">
+<meta property="og:description" content="Unsigned drum and bass and jungle. Private download links only.">
+<meta property="og:image" content="https://canopicrecordings.com/assets/share.jpg">
+<meta property="og:url" content="https://canopicrecordings.com/demos/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0a0a0a">
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Figtree:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="/assets/site.css">
+<style>
+.demo-hero { padding-block: clamp(48px, 8vw, 96px) clamp(32px, 5vw, 56px); text-align: center; position: relative; overflow: hidden; }
+.demo-hero .geo { position: absolute; inset: 0; width: 100%; height: 100%; color: var(--line); pointer-events: none; }
+.demo-hero .wrap { position: relative; display: grid; justify-items: center; gap: 18px; }
+.demo-hero h1 { margin: 0; font: 700 clamp(40px, 7vw, 84px)/1 var(--display); text-transform: uppercase; letter-spacing: .1em; text-wrap: balance; }
+.demo-hero p { margin: 0; max-width: 56ch; color: var(--ash); font-size: 18px; }
+.demo-hero .rule { width: min(100%, 360px); }
+
+.demo-grid { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(32px, 6vw, 80px); align-items: start; padding-block: clamp(32px, 5vw, 64px) clamp(64px, 9vw, 110px); }
+.guide h2 { margin: 0 0 22px; font: 700 26px/1.1 var(--display); text-transform: uppercase; letter-spacing: .1em; }
+.guide ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 22px; counter-reset: g; }
+.guide li { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 16px; counter-increment: g; }
+.guide li::before { content: counter(g, upper-roman); font: 700 15px/44px var(--display); text-align: center; width: 44px; height: 44px; border: 1px solid var(--line-hi); border-radius: 50%; color: var(--bone); }
+.guide h3 { margin: 4px 0 6px; font: 700 15px/1.3 var(--display); letter-spacing: .1em; text-transform: uppercase; }
+.guide p { margin: 0; color: var(--ash); }
+.guide .ok-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.guide .ok-links span { font: 600 10px/1 var(--display); letter-spacing: .2em; text-transform: uppercase; border: 1px solid var(--line); padding: 8px 10px; color: var(--bone); }
+
+.demo-form { position: relative; border: 1px solid var(--line); background: var(--stone); padding: clamp(22px, 3.4vw, 40px); display: grid; gap: 20px; }
+.demo-form::before, .demo-form::after { content: ""; position: absolute; width: 7px; height: 7px; border-radius: 50%; background: var(--line-hi); top: -4px; }
+.demo-form::before { left: -4px; } .demo-form::after { right: -4px; }
+.demo-form h2 { margin: 0; font: 700 26px/1.1 var(--display); text-transform: uppercase; letter-spacing: .1em; }
+.row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; }
+.field { display: grid; gap: 8px; min-width: 0; }
+.field label { font: 600 11px/1.2 var(--display); letter-spacing: .22em; text-transform: uppercase; color: var(--ash); }
+.field label em { font-style: normal; color: #6f6d68; letter-spacing: .1em; text-transform: none; font-family: var(--body); font-weight: 400; }
+.field input, .field textarea { width: 100%; font: 400 16px/1.4 var(--body); padding: 13px 14px; background: var(--ink); color: var(--bone); border: 1px solid var(--line); border-radius: 0; }
+.field input:focus, .field textarea:focus { outline: 1px solid var(--bone); outline-offset: 0; border-color: var(--bone); }
+.field textarea { min-height: 120px; resize: vertical; }
+.field .hint { font-size: 13px; color: #74726c; margin: 0; }
+.field.bad input { border-color: #b0544a; }
+.field .err { font-size: 13px; color: #d9776c; margin: 0; }
+.check { display: grid; grid-template-columns: 20px minmax(0, 1fr); gap: 12px; align-items: start; font-size: 15px; color: #cfcdc6; }
+.check input { width: 18px; height: 18px; margin: 2px 0 0; accent-color: #ecebe6; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.demo-form .btn { justify-self: start; }
+.demo-form .btn[disabled] { opacity: .5; cursor: wait; }
+.status { margin: 0; font-size: 15px; }
+.status.ok { color: var(--bone); border-left: 2px solid var(--bone); padding-left: 12px; }
+.status.bad { color: #d9776c; }
+.sent { display: grid; gap: 14px; justify-items: start; }
+.sent h2 { margin: 0; }
+.sent p { margin: 0; color: var(--ash); }
+
+@media (max-width: 860px) { .demo-grid { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 520px) { .row { grid-template-columns: minmax(0, 1fr); } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="Canopic Recordings home">
+      <img src="/assets/logo-white-sm.webp" alt="" width="160" height="174">
+      <span>CANOPIC</span>
+    </a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="/#releases">Releases</a></li>
+        <li><a href="/#artists">Artists</a></li>
+        <li><a href="/#about">About</a></li>
+        <li><a href="https://canopicrecordings.bandcamp.com/merch">Merch</a></li>
+        <li><a href="/demos/" aria-current="page" style="color:var(--bone)">Demos</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="demo-hero">
+    <svg class="geo" viewBox="0 0 1200 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <g fill="none" stroke="currentColor" stroke-width="1">
+        <circle cx="600" cy="250" r="230"/>
+        <circle cx="600" cy="250" r="190" stroke-dasharray="14 6 2 6"/>
+        <path d="M600 10 L860 460 L340 460 Z"/>
+        <path d="M250 250 L600 120 L950 250 L600 380 Z" stroke-dasharray="3 5"/>
+      </g>
+      <g fill="currentColor"><circle cx="600" cy="10" r="5"/><circle cx="250" cy="250" r="5"/><circle cx="950" cy="250" r="5"/></g>
+    </svg>
+    <div class="wrap">
+      <span class="tag">Unsigned music</span>
+      <h1>Send a demo</h1>
+      <div class="rule"><b></b><i></i><b></b></div>
+      <p>We're always digging for new drum and bass and jungle, from first-time producers and established names alike.</p>
+    </div>
+  </section>
+
+  <div class="wrap demo-grid">
+    <section class="guide" aria-labelledby="guide-h">
+      <h2 id="guide-h">Before you send</h2>
+      <ol>
+        <li><div><h3>Private, downloadable links</h3>
+          <p>Send one link to your tracks with downloads switched on. No public links, no attachments.</p>
+          <div class="ok-links"><span>SoundCloud private</span><span>Google Drive</span><span>WeTransfer</span><span>Dropbox</span></div></div></li>
+        <li><div><h3>Unsigned and original</h3>
+          <p>Only send music you own outright that hasn't been released or signed elsewhere.</p></div></li>
+        <li><div><h3>Your best two to four tracks</h3>
+          <p>Lead with your strongest track. Finished mixdowns are ideal, but strong ideas are welcome too.</p></div></li>
+        <li><div><h3>One submission at a time</h3>
+          <p>We listen to everything that comes in. If we want to take it further, we'll email you back.</p></div></li>
+      </ol>
+    </section>
+
+    <form class="demo-form" id="demo-form" novalidate>
+      <h2>Your demo</h2>
+      <div class="row">
+        <div class="field"><label for="artist">Artist name</label><input id="artist" name="artist_name" autocomplete="nickname" required></div>
+        <div class="field"><label for="email">Your email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+      </div>
+      <div class="field">
+        <label for="link">Link to your tracks</label>
+        <input id="link" name="demo_link" type="url" inputmode="url" placeholder="https://" required>
+        <p class="hint">Private SoundCloud, Google Drive, WeTransfer or Dropbox, with downloads enabled.</p>
+      </div>
+      <div class="row">
+        <div class="field"><label for="tracks">Track titles <em>(optional)</em></label><input id="tracks" name="track_titles"></div>
+        <div class="field"><label for="where">Based in <em>(optional)</em></label><input id="where" name="location" autocomplete="address-level2"></div>
+      </div>
+      <div class="field"><label for="socials">SoundCloud or Instagram <em>(optional)</em></label><input id="socials" name="socials" placeholder="Where we can hear more of your music"></div>
+      <div class="field"><label for="msg">About you and the tracks <em>(optional)</em></label><textarea id="msg" name="message"></textarea></div>
+      <label class="check"><input type="checkbox" id="own" name="confirmed_original_unsigned" value="Yes" required><span>These tracks are my own original, unsigned work, and the link allows downloads.</span></label>
+      <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="btn solid" type="submit" id="send">Send demo</button>
+      <p class="status" id="status" role="status" hidden></p>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="/assets/logo-white-sm.webp" alt="Canopic Recordings" width="160" height="174">
+    <ul>
+      <li><a href="https://canopicrecordings.bandcamp.com">Bandcamp</a></li>
+      <li><a href="https://www.instagram.com/canopicrecordings/">Instagram</a></li>
+      <li><a href="https://www.facebook.com/canopicrecs">Facebook</a></li>
+      <li><a href="https://twitter.com/canopicrecs">X / Twitter</a></li>
+    </ul>
+    <span class="note">© Canopic Recordings · London</span>
+  </div>
+</footer>
+
+<script>
+// Submissions go through Web3Forms, which forwards them to the label inbox.
+// The access key is an alias for the inbox and is safe to publish; the address itself never appears here.
+const ACCESS_KEY = "";
+
+const form = document.getElementById("demo-form");
+const status = document.getElementById("status");
+const btn = document.getElementById("send");
+
+function say(text, kind) { status.textContent = text; status.className = "status " + kind; status.hidden = false; }
+function mark(id, msg) {
+  const f = document.getElementById(id).closest(".field");
+  if (!f) return;
+  f.classList.add("bad");
+  if (!f.querySelector(".err")) { const p = document.createElement("p"); p.className = "err"; p.textContent = msg; f.appendChild(p); }
+}
+form.addEventListener("input", e => { const f = e.target.closest(".field"); if (f) { f.classList.remove("bad"); f.querySelector(".err")?.remove(); } });
+
+form.addEventListener("submit", async e => {
+  e.preventDefault();
+  status.hidden = true;
+  let ok = true;
+  const v = id => document.getElementById(id).value.trim();
+  if (!v("artist")) { mark("artist", "Add your artist name."); ok = false; }
+  if (!/^\S+@\S+\.\S+$/.test(v("email"))) { mark("email", "Add an email address we can reply to."); ok = false; }
+  if (!/^https?:\/\/\S+\.\S+/.test(v("link"))) { mark("link", "Paste the full link, starting with https://"); ok = false; }
+  if (!document.getElementById("own").checked) { say("Tick the box to confirm the tracks are yours and unsigned.", "bad"); ok = false; }
+  if (!ok) return;
+  if (!ACCESS_KEY) { say("Demo submissions open very soon. Please check back shortly.", "bad"); return; }
+
+  const data = Object.fromEntries(new FormData(form));
+  data.access_key = ACCESS_KEY;
+  data.subject = "Demo: " + data.artist_name;
+  data.from_name = "Canopic website";
+  data.replyto = data.email;
+  btn.disabled = true; btn.textContent = "Sending…";
+  try {
+    const res = await fetch("https://api.web3forms.com/submit", { method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json" }, body: JSON.stringify(data) });
+    const out = await res.json().catch(() => ({}));
+    if (!res.ok || out.success === false) throw new Error(out.message || "send failed");
+    form.innerHTML = `<div class="sent"><span class="tag">Received</span><h2>Thanks, ${data.artist_name.replace(/[<>&"]/g, "")}</h2><p>Your demo is with us. We listen to everything, and if we want to take it further we'll email you at the address you gave.</p><a class="btn ghost" href="/">Back to the label</a></div>`;
+  } catch (err) {
+    btn.disabled = false; btn.textContent = "Send demo";
+    say("That didn't send. Check your connection and try again in a moment.", "bad");
+  }
+});
+</script>
+</body>
+</html>
