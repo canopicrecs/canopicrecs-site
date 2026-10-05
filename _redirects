@@ -2,7 +2,7 @@
 /album/*      https://shop.canopicrecordings.com/album/:splat      301
 /track/*      https://shop.canopicrecordings.com/track/:splat      301
 # /merch/ is now the site's own merch page; old product links still go to the shop
-/merch/canopic-recordings-t-shirt  https://shop.canopicrecordings.com/merch/canopic-recordings-t-shirt  301
+/merch/canopic-recordings-t-shirt  /merch/  301
 /music        https://shop.canopicrecordings.com/music             301
 /artists      https://shop.canopicrecordings.com/artists           301
 /video        https://shop.canopicrecordings.com/video             301
