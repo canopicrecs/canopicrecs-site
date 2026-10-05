@@ -16,4 +16,4 @@ To add a release: add a line to the `releases` list near the bottom of `index.ht
 
 ## Merch
 
-`merch/index.html` lists products from the `products` list near the bottom of the file. One product shows as a large feature; two or more switch to a grid like the catalogue. Set `soldOut: true` to grey an item out.
+`merch/index.html` lists products from the `products` list near the bottom of the file. Products show in a grid with Tees / Hoodies / Bags filters (set by `cat`). Product photos live in `assets/merch/`. Leave `price` as "" to hide it; set `soldOut: true` to grey an item out.

@@ -28,7 +28,7 @@
 .store { padding-block: clamp(24px, 4vw, 48px) clamp(64px, 9vw, 110px); }
 
 /* product grid, same rhythm as the catalogue */
-.products { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); gap: clamp(18px, 2.6vw, 32px); }
+.products { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr)); gap: clamp(18px, 2.6vw, 32px); }
 .product { display: grid; gap: 14px; align-content: start; text-decoration: none; }
 .product .art { position: relative; aspect-ratio: 1; max-width: 100%; overflow: hidden; background: var(--stone); border: 1px solid var(--line); }
 .product .art img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s ease; }
@@ -38,7 +38,10 @@
 .product:hover .buy, .product:focus-visible .buy { transform: none; }
 .product .kind { font: 600 10px/1 var(--display); letter-spacing: .3em; text-transform: uppercase; color: var(--ash); }
 .product h2 { margin: 6px 0 0; font: 700 18px/1.25 var(--display); text-transform: uppercase; letter-spacing: .06em; }
-.product .price { margin: 6px 0 0; color: var(--bone); font-variant-numeric: tabular-nums; }
+.product .meta { margin: 6px 0 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; }
+.product .price { color: var(--bone); font-variant-numeric: tabular-nums; }
+.product .via { font-size: 13px; color: #74726c; }
+.product .art { background: var(--bone); }
 .product.out .art img { filter: grayscale(1) brightness(.6); }
 @media (hover: none) { .product .buy { transform: none; } }
 
@@ -99,12 +102,18 @@
       <span class="tag">Official label goods</span>
       <h1>Merch</h1>
       <div class="rule"><b></b><i></i><b></b></div>
-      <p>Official Canopic Recordings goods. Every order is handled and shipped through our Bandcamp store.</p>
+      <p>Official Canopic Recordings tees, hoodies and totes, printed to order in the UK on organic cotton.</p>
     </div>
   </section>
 
   <section class="store">
     <div class="wrap">
+      <div class="filters merch-filters" role="group" aria-label="Filter merch">
+        <button class="chip" type="button" data-f="all" aria-pressed="true">All</button>
+        <button class="chip" type="button" data-f="tees" aria-pressed="false">Tees</button>
+        <button class="chip" type="button" data-f="hoodies" aria-pressed="false">Hoodies</button>
+        <button class="chip" type="button" data-f="bags" aria-pressed="false">Bags</button>
+      </div>
       <div class="products" id="products"></div>
 
       <div class="store-note">
@@ -135,46 +144,48 @@
 
 <script>
 // To add a product: copy one entry and change the details.
-// soldOut: true greys it out. details and ships are only shown when there is a single product.
+// cat groups the filter buttons; price can be left as "" until it's set; soldOut: true greys it out.
+const TEEMILL = "Teemill", BANDCAMP = "Bandcamp";
 const products = [
-  {
-    title: "Canopic Recordings T-Shirt",
-    kind: "T-shirt",
-    price: "£27.50",
-    url: "https://canopicrecordings.bandcamp.com/merch/canopic-recordings-t-shirt",
-    img: "https://f4.bcbits.com/img/0037659665_10.jpg",
-    desc: "Unisex-fit tee from the Essentials Collection, in 100% organic cotton with a relaxed, contemporary fit.",
-    details: ["100% organic ringspun combed cotton, 155gsm", "Set-in sleeves and 1x1 rib neck collar", "Tubular body with wide double topstitched hems"],
-    ships: "Ships within 3 days",
-    soldOut: false
-  }
+  { title: "Canopic Logo Hoodie", kind: "Unisex hoodie", colour: "Black", cat: "hoodies", price: "", via: TEEMILL,
+    url: "https://canopic.teemill.com/product/canopic-logo-hoodie-black/?colour=Black", img: "/assets/merch/hoodie-black.webp" },
+  { title: "Canopic Logo Tee", kind: "Men's tee", colour: "Black", cat: "tees", price: "", via: TEEMILL,
+    url: "https://canopic.teemill.com/product/canopic-logo-black-tee/?colour=Black", img: "/assets/merch/tee-black.webp" },
+  { title: "Canopic Logo Tee", kind: "Men's tee", colour: "White", cat: "tees", price: "", via: TEEMILL,
+    url: "https://canopic.teemill.com/product/canopic-logo-white-tee/?colour=White", img: "/assets/merch/tee-white.webp" },
+  { title: "Canopic Logo Tee", kind: "Men's tee", colour: "Stone blue", cat: "tees", price: "", via: TEEMILL,
+    url: "https://canopic.teemill.com/product/stone-blue-tee/?colour=Denim%20Blue", img: "/assets/merch/tee-stone-blue.webp" },
+  { title: "Canopic Logo Tee", kind: "Women's tee", colour: "Black", cat: "tees", price: "", via: TEEMILL,
+    url: "https://canopic.teemill.com/product/ladies-black-tee/?colour=Black", img: "/assets/merch/ladies-tee-black.webp" },
+  { title: "Canopic Logo Tee", kind: "Women's tee", colour: "Athletic grey", cat: "tees", price: "", via: TEEMILL,
+    url: "https://canopic.teemill.com/product/ladies-grey-tee/?colour=Athletic%20Grey", img: "/assets/merch/ladies-tee-grey.webp" },
+  { title: "Canopic Tote Bag", kind: "Tote bag", colour: "Black", cat: "bags", price: "", via: TEEMILL,
+    url: "https://canopic.teemill.com/product/canopic-tote/?colour=Black", img: "/assets/merch/tote-black.webp" },
+  { title: "Canopic Recordings T-Shirt", kind: "Unisex tee", colour: "", cat: "tees", price: "£27.50", via: BANDCAMP,
+    url: "https://canopicrecordings.bandcamp.com/merch/canopic-recordings-t-shirt", img: "https://f4.bcbits.com/img/0037659665_10.jpg" }
 ];
 
 const box = document.getElementById("products");
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
-if (products.length === 1) {
-  const p = products[0];
-  box.classList.add("solo");
-  box.innerHTML = `
-    <a class="solo-art" href="${p.url}" target="_blank" rel="noopener"><img src="${p.img}" alt="${esc(p.title)}" width="1200" height="1200"></a>
-    <div class="solo-info">
-      <span class="tag">${esc(p.kind)}</span>
-      <h2>${esc(p.title)}</h2>
-      <p class="price">${esc(p.price)}</p>
-      ${p.desc ? `<p class="desc">${esc(p.desc)}</p>` : ""}
-      ${p.details ? `<ul>${p.details.map(d => `<li>${esc(d)}</li>`).join("")}</ul>` : ""}
-      ${p.soldOut ? `<span class="btn ghost" aria-disabled="true">Sold out</span>` : `<a class="btn solid" href="${p.url}" target="_blank" rel="noopener">Buy on Bandcamp</a>`}
-      ${p.ships ? `<span class="ship">${esc(p.ships)}</span>` : ""}
-    </div>`;
-} else {
-  box.innerHTML = products.map(p => `
+function render(filter) {
+  box.innerHTML = products.filter(p => filter === "all" || p.cat === filter).map(p => `
     <a class="product${p.soldOut ? " out" : ""}" href="${p.url}" target="_blank" rel="noopener">
-      <div class="art"><img src="${p.img}" alt="${esc(p.title)}" width="700" height="700" loading="lazy">
-        ${p.soldOut ? `<span class="flag">Sold out</span>` : `<span class="buy">Buy on Bandcamp</span>`}</div>
-      <div><span class="kind">${esc(p.kind)}</span><h2>${esc(p.title)}</h2><p class="price">${esc(p.price)}</p></div>
+      <div class="art"><img src="${p.img}" alt="${esc(p.title)}${p.colour ? ", " + esc(p.colour) : ""}" width="800" height="800" loading="lazy">
+        ${p.soldOut ? `<span class="flag">Sold out</span>` : `<span class="buy">Choose size &amp; buy</span>`}</div>
+      <div>
+        <span class="kind">${esc(p.kind)}${p.colour ? " · " + esc(p.colour) : ""}</span>
+        <h2>${esc(p.title)}</h2>
+        <p class="meta">${p.price ? `<span class="price">${esc(p.price)}</span>` : ""}<span class="via">Checkout via ${esc(p.via)}</span></p>
+      </div>
     </a>`).join("");
 }
+const chips = document.querySelectorAll(".merch-filters .chip");
+chips.forEach(c => c.addEventListener("click", () => {
+  chips.forEach(o => o.setAttribute("aria-pressed", o === c ? "true" : "false"));
+  render(c.dataset.f);
+}));
+render("all");
 </script>
 </body>
 </html>
