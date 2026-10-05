@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Merch · Canopic Recordings</title>
+<meta name="description" content="Official Canopic Recordings merch: t-shirts and more, shipped via Bandcamp.">
+<meta property="og:title" content="Canopic Recordings merch">
+<meta property="og:description" content="Official label merch, shipped via Bandcamp.">
+<meta property="og:image" content="https://canopicrecordings.com/assets/share.jpg">
+<meta property="og:url" content="https://canopicrecordings.com/merch/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0a0a0a">
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Figtree:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="/assets/site.css">
+<style>
+.page-hero { padding-block: clamp(48px, 8vw, 96px) clamp(32px, 5vw, 56px); text-align: center; position: relative; overflow: hidden; }
+.page-hero .geo { position: absolute; inset: 0; width: 100%; height: 100%; color: var(--line); pointer-events: none; }
+.page-hero .wrap { position: relative; display: grid; justify-items: center; gap: 18px; }
+.page-hero h1 { margin: 0; font: 700 clamp(40px, 7vw, 84px)/1 var(--display); text-transform: uppercase; letter-spacing: .1em; }
+.page-hero p { margin: 0; max-width: 56ch; color: var(--ash); font-size: 18px; }
+.page-hero .rule { width: min(100%, 360px); }
+
+.store { padding-block: clamp(24px, 4vw, 48px) clamp(64px, 9vw, 110px); }
+
+/* product grid, same rhythm as the catalogue */
+.products { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); gap: clamp(18px, 2.6vw, 32px); }
+.product { display: grid; gap: 14px; align-content: start; text-decoration: none; }
+.product .art { position: relative; aspect-ratio: 1; max-width: 100%; overflow: hidden; background: var(--stone); border: 1px solid var(--line); }
+.product .art img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s ease; }
+.product .flag { position: absolute; top: 12px; left: 12px; background: var(--ink); color: var(--bone); border: 1px solid var(--bone); font: 700 10px/1 var(--display); letter-spacing: .26em; text-transform: uppercase; padding: 8px 10px; }
+.product .buy { position: absolute; left: 0; right: 0; bottom: 0; background: var(--bone); color: var(--ink); font: 700 11px/1 var(--display); letter-spacing: .24em; text-transform: uppercase; padding: 12px; text-align: center; transform: translateY(100%); transition: transform .25s ease; }
+.product:hover img, .product:focus-visible img { transform: scale(1.04); }
+.product:hover .buy, .product:focus-visible .buy { transform: none; }
+.product .kind { font: 600 10px/1 var(--display); letter-spacing: .3em; text-transform: uppercase; color: var(--ash); }
+.product h2 { margin: 6px 0 0; font: 700 18px/1.25 var(--display); text-transform: uppercase; letter-spacing: .06em; }
+.product .price { margin: 6px 0 0; color: var(--bone); font-variant-numeric: tabular-nums; }
+.product.out .art img { filter: grayscale(1) brightness(.6); }
+@media (hover: none) { .product .buy { transform: none; } }
+
+/* a single product gets the full feature treatment */
+.products.solo { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 64px); align-items: center; }
+.solo-art { position: relative; aspect-ratio: 1; max-width: 100%; background: var(--stone); border: 1px solid var(--line); overflow: hidden; }
+.solo-art::before, .solo-art::after { content: ""; position: absolute; width: 7px; height: 7px; border-radius: 50%; background: var(--line-hi); top: -4px; z-index: 1; }
+.solo-art::before { left: -4px; } .solo-art::after { right: -4px; }
+.solo-art img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.solo-info { display: grid; gap: 18px; justify-items: start; }
+.solo-info h2 { margin: 0; font: 700 clamp(28px, 4vw, 44px)/1.05 var(--display); text-transform: uppercase; letter-spacing: .06em; text-wrap: balance; }
+.solo-info .price { margin: 0; font: 600 24px/1 var(--body); font-variant-numeric: tabular-nums; }
+.solo-info .desc { margin: 0; color: #cfcdc6; max-width: 52ch; }
+.solo-info ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; color: var(--ash); font-size: 15px; }
+.solo-info li { display: flex; gap: 12px; align-items: baseline; }
+.solo-info li::before { content: ""; width: 6px; height: 6px; border: 1px solid var(--line-hi); transform: rotate(45deg); flex: none; position: relative; top: -2px; }
+.solo-info .ship { font: 600 11px/1 var(--display); letter-spacing: .24em; text-transform: uppercase; color: var(--ash); }
+@media (max-width: 860px) { .products.solo { grid-template-columns: minmax(0, 1fr); } }
+
+.store-note { margin-top: clamp(48px, 7vw, 80px); display: grid; justify-items: center; gap: 18px; text-align: center; }
+.store-note p { margin: 0; color: var(--ash); max-width: 56ch; }
+.store-note .rule { width: min(100%, 360px); }
+.store-note .cta-row { justify-content: center; margin: 0; }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="Canopic Recordings home">
+      <img src="/assets/logo-white-sm.webp" alt="" width="160" height="174">
+      <span>CANOPIC</span>
+    </a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="/#releases">Releases</a></li>
+        <li><a href="/#artists">Artists</a></li>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/merch/" aria-current="page" style="color:var(--bone)">Merch</a></li>
+        <li><a href="/demos/">Demos</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <svg class="geo" viewBox="0 0 1200 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <g fill="none" stroke="currentColor" stroke-width="1">
+        <circle cx="600" cy="250" r="230"/>
+        <circle cx="600" cy="250" r="190" stroke-dasharray="14 6 2 6"/>
+        <path d="M600 10 L860 460 L340 460 Z"/>
+        <path d="M250 250 L600 120 L950 250 L600 380 Z" stroke-dasharray="3 5"/>
+      </g>
+      <g fill="currentColor"><circle cx="600" cy="10" r="5"/><circle cx="250" cy="250" r="5"/><circle cx="950" cy="250" r="5"/></g>
+    </svg>
+    <div class="wrap">
+      <span class="tag">Official label goods</span>
+      <h1>Merch</h1>
+      <div class="rule"><b></b><i></i><b></b></div>
+      <p>Official Canopic Recordings goods. Every order is handled and shipped through our Bandcamp store.</p>
+    </div>
+  </section>
+
+  <section class="store">
+    <div class="wrap">
+      <div class="products" id="products"></div>
+
+      <div class="store-note">
+        <div class="rule"><b></b><i></i><b></b></div>
+        <p>Looking for the music? Downloads and vinyl for every release are in the catalogue.</p>
+        <div class="cta-row">
+          <a class="btn ghost" href="/#releases">Browse the catalogue</a>
+          <a class="btn ghost" href="https://canopicrecordings.bandcamp.com/merch" target="_blank" rel="noopener">All merch on Bandcamp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="/assets/logo-white-sm.webp" alt="Canopic Recordings" width="160" height="174">
+    <ul>
+      <li><a href="https://canopicrecordings.bandcamp.com">Bandcamp</a></li>
+      <li><a href="https://www.instagram.com/canopicrecordings/">Instagram</a></li>
+      <li><a href="https://www.facebook.com/canopicrecs">Facebook</a></li>
+      <li><a href="https://twitter.com/canopicrecs">X / Twitter</a></li>
+      <li><a href="/demos/">Send a demo</a></li>
+    </ul>
+    <span class="note">© Canopic Recordings · London</span>
+  </div>
+</footer>
+
+<script>
+// To add a product: copy one entry and change the details.
+// soldOut: true greys it out. details and ships are only shown when there is a single product.
+const products = [
+  {
+    title: "Canopic Recordings T-Shirt",
+    kind: "T-shirt",
+    price: "£27.50",
+    url: "https://canopicrecordings.bandcamp.com/merch/canopic-recordings-t-shirt",
+    img: "https://f4.bcbits.com/img/0037659665_10.jpg",
+    desc: "Unisex-fit tee from the Essentials Collection, in 100% organic cotton with a relaxed, contemporary fit.",
+    details: ["100% organic ringspun combed cotton, 155gsm", "Set-in sleeves and 1x1 rib neck collar", "Tubular body with wide double topstitched hems"],
+    ships: "Ships within 3 days",
+    soldOut: false
+  }
+];
+
+const box = document.getElementById("products");
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+if (products.length === 1) {
+  const p = products[0];
+  box.classList.add("solo");
+  box.innerHTML = `
+    <a class="solo-art" href="${p.url}" target="_blank" rel="noopener"><img src="${p.img}" alt="${esc(p.title)}" width="1200" height="1200"></a>
+    <div class="solo-info">
+      <span class="tag">${esc(p.kind)}</span>
+      <h2>${esc(p.title)}</h2>
+      <p class="price">${esc(p.price)}</p>
+      ${p.desc ? `<p class="desc">${esc(p.desc)}</p>` : ""}
+      ${p.details ? `<ul>${p.details.map(d => `<li>${esc(d)}</li>`).join("")}</ul>` : ""}
+      ${p.soldOut ? `<span class="btn ghost" aria-disabled="true">Sold out</span>` : `<a class="btn solid" href="${p.url}" target="_blank" rel="noopener">Buy on Bandcamp</a>`}
+      ${p.ships ? `<span class="ship">${esc(p.ships)}</span>` : ""}
+    </div>`;
+} else {
+  box.innerHTML = products.map(p => `
+    <a class="product${p.soldOut ? " out" : ""}" href="${p.url}" target="_blank" rel="noopener">
+      <div class="art"><img src="${p.img}" alt="${esc(p.title)}" width="700" height="700" loading="lazy">
+        ${p.soldOut ? `<span class="flag">Sold out</span>` : `<span class="buy">Buy on Bandcamp</span>`}</div>
+      <div><span class="kind">${esc(p.kind)}</span><h2>${esc(p.title)}</h2><p class="price">${esc(p.price)}</p></div>
+    </a>`).join("");
+}
+</script>
+</body>
+</html>

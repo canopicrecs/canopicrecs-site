@@ -13,3 +13,7 @@ To add a release: add a line to the `releases` list near the bottom of `index.ht
 ## Demo submissions
 
 `demos/index.html` posts to Web3Forms, which forwards each submission to the label inbox without the address appearing on the site. Set `ACCESS_KEY` near the bottom of that file to the key Web3Forms emails you.
+
+## Merch
+
+`merch/index.html` lists products from the `products` list near the bottom of the file. One product shows as a large feature; two or more switch to a grid like the catalogue. Set `soldOut: true` to grey an item out.
